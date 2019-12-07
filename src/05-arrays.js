@@ -114,21 +114,41 @@ exports.count = function(arr, item) {
  */
 exports.duplicates = function(arr) {
 
-    var countOccurrencesGtOne = function (currentValue, index, array) {
+    var isOccurrencesGtOne = function (currentValue, index, array) {
         return exports.count(array, currentValue) > 1;
     };
 
-    return arr.filter(countOccurrencesGtOne);
+    var isNotDuplicate = function(currentValue, index, array) {
+        return (array.indexOf(currentValue) === index);
+    };
+    return arr.filter(isOccurrencesGtOne).filter(isNotDuplicate);
 };
 
 /**
  * Square each number in the array
  */
 exports.square = function(arr) {
+
+    var squareANumber = function (currentValue) {
+        return Math.pow(currentValue, 2);
+    };
+
+    return arr.map(squareANumber, arr);
 };
 
 /**
  * Find all occurrences of an item in an array
  */
 exports.findAllOccurrences = function(arr, target) {
+
+    var matches = function (currentValue, index) {
+
+        if (currentValue === target) {
+            return index;
+        }
+    };
+    var isNotUndefined = function(currentValue) {
+        return currentValue !== undefined;
+    };
+    return arr.map(matches, arr).filter(isNotUndefined);
 };
