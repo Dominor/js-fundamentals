@@ -114,6 +114,11 @@ exports.count = function(arr, item) {
  */
 exports.duplicates = function(arr) {
 
+    var countOccurrencesGtOne = function (currentValue, index, array) {
+        return exports.count(array, currentValue) > 1;
+    };
+
+    return arr.filter(countOccurrencesGtOne);
 };
 
 /**
@@ -123,7 +128,7 @@ exports.square = function(arr) {
 };
 
 /**
- * Find all occurrenes of an item in an array
+ * Find all occurrences of an item in an array
  */
 exports.findAllOccurrences = function(arr, target) {
 };
