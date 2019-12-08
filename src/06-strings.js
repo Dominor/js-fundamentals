@@ -3,13 +3,41 @@
  */
 exports.reduceString = function(str, amount) {
 
-
+    var i;
+    var result;
+    var count;
+    for (i = 0, result = "", count = 0; i < str.length; i++) {
+        if (count < amount) {
+            result = result.concat(str[i]);
+            count++;
+        }
+        if (str[i + 1] !== str[i]) {
+            count = 0;
+        }
+    }
+    return result;
 };
 
 /**
  * Wrap lines at a given number of columns without breaking words
  */
 exports.wordWrap = function(str, cols) {
+
+    var result = "";
+    var i = 0;
+    var count = 0;
+    while (i < str.length) {
+
+        if (str[i] === " " && count >= cols) {
+            result += "\n";
+            count = 0;
+        } else {
+            result += str[i];
+            count++;
+        }
+        i++;
+    }
+    return result;
 };
 
 /**
