@@ -26,7 +26,7 @@ exports.reduceString = function(str, amount) {
  */
 exports.wordWrap = function(str, cols) {
 
-    /* var result = "";  // Procedural solution
+    var result = "";  // Procedural solution
     var i = 0;
     var count = 0;
     while (i < str.length) {
@@ -40,9 +40,10 @@ exports.wordWrap = function(str, cols) {
         }
         i++;
     }
-    return result; */
+    return result;
 
-
+    /* var result = str.replace(new RegExp("(?<!(\\w){5,})\\s", "g"), "\n");
+    return result; // not possible in JavaScript ES5 as it doesn't support lookaround constructs. No time to figure out an equally elegant solution, other than pure procedural. */
 };
 
 /**
