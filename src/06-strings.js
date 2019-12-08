@@ -3,7 +3,7 @@
  */
 exports.reduceString = function(str, amount) {
 
-    var i;
+    /* var i; // Procedural solution
     var result;
     var count;
     for (i = 0, result = "", count = 0; i < str.length; i++) {
@@ -15,6 +15,9 @@ exports.reduceString = function(str, amount) {
             count = 0;
         }
     }
+    return result; */
+
+    var result = str.replace(new RegExp("(.)(?=\\1{" + amount + ",})", "g"), "");
     return result;
 };
 
@@ -23,7 +26,7 @@ exports.reduceString = function(str, amount) {
  */
 exports.wordWrap = function(str, cols) {
 
-    var result = "";
+    /* var result = "";  // Procedural solution
     var i = 0;
     var count = 0;
     while (i < str.length) {
@@ -37,7 +40,9 @@ exports.wordWrap = function(str, cols) {
         }
         i++;
     }
-    return result;
+    return result; */
+
+
 };
 
 /**
